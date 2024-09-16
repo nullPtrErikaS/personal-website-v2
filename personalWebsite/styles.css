@@ -1,0 +1,122 @@
+/* Hero Section */
+.hero {
+    height: 60vh; /* 60% of the viewport height */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between text and image */
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    color: #000;
+    position: relative; /* For positioning children elements */
+    overflow: hidden; /* Ensure nothing escapes the container */
+    padding-top: 53px; /* Add some padding to move everything down */
+}
+
+/* Flex container for hero content */
+.hero-content {
+    display: flex;
+    width: 100%;
+    padding: 0 5%; /* Responsive padding */
+    box-sizing: border-box; /* Include padding in width calculations */
+    align-items: center; /* Center items vertically */
+    position: relative; /* Position the text content relative to its parent */
+}
+
+/* Text content styling */
+.text-content {
+    flex: 1;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1; /* Make sure the text stays on top */
+    position: relative;
+}
+
+/* Title "Hello, I'm" */
+.hero h1 {
+    font-size: 3vw; /* Slightly smaller font size */
+    margin: 0;
+    color: #000; /* Text color */
+    display: block; /* Ensure it's treated as a block, so the name appears below */
+    white-space: nowrap; /* Prevent wrapping */
+    line-height: 1.2; /* Adjust line-height to maintain vertical alignment */
+    margin-bottom: 0.5rem; /* Space between "Hello, I'm" and the name */
+}
+
+/* Typed Name */
+#typed-name {
+    color: #ff5e00; /* Color for the typed name */
+    font-family: monospace; /* Fixed-width font */
+    font-size: 6vw; /* Slightly smaller font size */
+    display: inline-block; /* Keeps the name inline below the title */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden;
+    position: relative;
+    margin-top: 0; /* Remove extra margin */
+    height: 7vw; /* Set fixed height to prevent layout shifts */
+}
+
+
+/* Cursor Effect */
+#typed-name::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #ff5e00;
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { background-color: transparent; }
+    50% { background-color: #ff5e00; }
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: auto;
+    height: calc(60vh * 0.90);
+    max-height: 525px;
+    border-radius: 0;
+    object-fit: cover;
+    position: absolute; /* Fix the profile picture’s position */
+    top: 50%; /* Center it vertically */
+    right: 5%; /* Position it to the right */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    z-index: 0; /* Ensure it's behind the text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 36vh;
+    }
+
+    .hero-content {
+        padding: 0 1%; /* Adjust padding for smaller screens */
+    }
+
+    .profile-picture {
+        height: calc(50vh * 0.90);
+        max-height: 275px;
+        top: 50%; /* Still center it vertically */
+        right: 2%; /* Adjust positioning for smaller screens */
+        transform: translateY(-50%);
+    }
+
+    .text-content {
+        margin-right: 1%;
+    }
+
+    .hero h1 {
+        font-size: 4vw;
+    }
+
+    #typed-name {
+        font-size: 7vw;
+        margin-top: 1rem;
+    }
+}
