@@ -34,7 +34,7 @@
 
 /* Title "Hello, I'm" */
 .hero h1 {
-    font-size: 2.5vw; /* Slightly smaller font size */
+    font-size: 2vw; /* Slightly smaller font size */
     margin: 0;
     color: #000; /* Text color */
     display: block; /* Ensure it's treated as a block, so the name appears below */
@@ -47,14 +47,14 @@
 #typed-name {
     color: #ff5e00; /* Color for the typed name */
     font-family: monospace; /* Fixed-width font */
-    font-size: 6vw; /* Slightly smaller font size */
+    font-size: 5.5vw; /* Slightly smaller font size */
     font-weight: 600; /* Slightly thicker font weight */
     display: inline-block; /* Keeps the name inline below the title */
     white-space: nowrap; /* Prevent wrapping */
     overflow: hidden;
     position: relative;
     margin-top: 0; /* Remove extra margin */
-    height: 8vw; /* Set fixed height to prevent layout shifts */
+    height: 9vw; /* Set fixed height to prevent layout shifts */
 }
 
 /* Cursor Effect */
@@ -87,6 +87,38 @@
     right: 5%; /* Position it to the right */
     transform: translateY(-50%); /* Adjust for vertical centering */
     z-index: 0; /* Ensure it's behind the text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 35vh;
+    }
+
+    .hero-content {
+        padding: 0 1%; /* Adjust padding for smaller screens */
+    }
+
+    .profile-picture {
+        height: calc(50vh * 0.90);
+        max-height: 275px;
+        top: 50%; /* Still center it vertically */
+        right: 2%; /* Adjust positioning for smaller screens */
+        transform: translateY(-50%);
+    }
+
+    .text-content {
+        margin-right: 1%;
+    }
+
+    .hero h1 {
+        font-size: 3.5vw;
+    }
+
+    #typed-name {
+        font-size: 8vw;
+        margin-top: 1rem;
+    }
 }
 
 /* Navigation Bar */
@@ -176,74 +208,103 @@
 
     .about p {
         font-size: 1.05rem; /* Adjust paragraph font size for smaller screens */
+        width: 90%;
     }
 }
 
+/* Projects Section */
+.projects {
+    padding: 30px 10px; /* Adjust padding for the section */
+    text-align: center; /* Center align the section text */
+}
+
 .projects h2 {
-    margin-bottom: 30px; /* Space below the heading */
+    font-size: 2.5rem; /* Font size for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    font-weight: 650; /* Bold heading */
 }
 
-.projects h3 {
-    margin-bottom: 20px; /* Space below the project title */
-    font-size: 1.5rem; /* Font size for project titles */
+.projects-wrapper {
+    position: relative; /* Ensure proper positioning for arrows */
+    overflow: hidden; /* Hide overflow to maintain boundaries */
+    width: 100%; /* Full width of the container */
+    display: flex; /* Flex container for vertical alignment */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center align items horizontally */
 }
 
-.projects p {
-    font-size: 1rem; /* Font size for project descriptions */
+.projects-content {
+    display: flex; /* Keep the items in a vertical line */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    transition: transform 0.3s ease; /* Smooth transition for sliding effect */
+    overflow: hidden; /* Hide overflow */
+    height: 400px; /* Adjust based on desired height */
+    width: 100%; /* Full width of the container */
 }
 
-/* Remove Services styles */
-.services {
-    display: none; /* Hide the old Services section */
+.project-item {
+    width: 80%; /* Adjust based on design */
+    margin: 10px 0; /* Space between items */
+    background: #f8f9fa; /* Background color for project items */
+    padding: 20px; /* Padding inside each project item */
+    border-radius: 5px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for depth */
+    text-align: left; /* Align text inside the project item */
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Arrange text vertically */
+}
+
+/* Center align the middle item */
+.project-item.middle {
+    width: 90%; /* Slightly larger width for the middle item */
+    font-size: 1.2rem; /* Adjust font size for the middle item */
+}
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.up-arrow {
+    top: 10px; /* Position the up arrow */
+}
+
+.down-arrow {
+    bottom: 10px; /* Position the down arrow */
+}
+
+/* Optional: Styling for scrollbar */
+.projects-wrapper::-webkit-scrollbar {
+    height: 8px; /* Height of the scrollbar */
+}
+
+.projects-wrapper::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for scrollbar thumb */
+}
+
+.projects-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color of the scrollbar thumb on hover */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .projects {
-        padding: 30px 10px; /* Adjust padding for smaller screens */
-    }
-
     .projects h2 {
         font-size: 1.5rem; /* Adjust heading font size for smaller screens */
     }
 
-    .projects h3 {
-        font-size: 1.25rem; /* Adjust project title font size for smaller screens */
-    }
-
-    .projects p {
-        font-size: 0.875rem; /* Adjust project description font size for smaller screens */
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero {
-        height: 35vh;
-    }
-
-    .hero-content {
-        padding: 0 1%; /* Adjust padding for smaller screens */
-    }
-
-    .profile-picture {
-        height: calc(50vh * 0.90);
-        max-height: 275px;
-        top: 50%; /* Still center it vertically */
-        right: 2%; /* Adjust positioning for smaller screens */
-        transform: translateY(-50%);
-    }
-
-    .text-content {
-        margin-right: 1%;
-    }
-
-    .hero h1 {
-        font-size: 3.5vw;
-    }
-
-    #typed-name {
-        font-size: 7.5vw;
-        margin-top: 1rem;
+    .project-item {
+        width: 90%; /* Adjust width for smaller screens */
     }
 }

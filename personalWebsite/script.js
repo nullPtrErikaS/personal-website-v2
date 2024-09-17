@@ -38,3 +38,34 @@ if (typedNameElement) {
 } else {
     console.error('Element with ID "typed-name" not found.');
 }
+
+// Carousel Functionality
+const projectWrapper = document.querySelector('.projects-wrapper');
+const projectsContent = document.querySelector('.projects-content');
+const projectItems = Array.from(document.querySelectorAll('.project-item'));
+const totalProjects = projectItems.length;
+const visibleCount = 3; // Number of projects visible at once
+const middleIndex = Math.floor(visibleCount / 2);
+let currentIndex = middleIndex; // Start from the middle
+
+function updateCarousel() {
+    const itemHeight = 120; // Adjust based on your project item height
+    const offset = -(currentIndex * itemHeight); // Adjust the offset based on item height
+    projectsContent.style.transform = `translateY(${offset}px)`;
+    projectItems.forEach((item, index) => {
+        item.classList.toggle('middle', index === (currentIndex + middleIndex) % totalProjects);
+    });
+}
+
+document.querySelector('.up-arrow').addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? totalProjects - visibleCount : currentIndex - 1;
+    updateCarousel();
+});
+
+document.querySelector('.down-arrow').addEventListener('click', () => {
+    currentIndex = (currentIndex === totalProjects - visibleCount) ? 0 : currentIndex + 1;
+    updateCarousel();
+});
+
+// Initialize carousel
+updateCarousel();
