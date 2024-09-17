@@ -214,74 +214,71 @@
 
 /* Projects Section */
 .projects {
-    padding: 30px 10px; /* Adjust padding for the section */
-    text-align: center; /* Center align the section text */
-}
-
-.projects h2 {
-    font-size: 2.5rem; /* Font size for the heading */
-    margin-bottom: 20px; /* Space below the heading */
-    font-weight: 650; /* Bold heading */
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
 }
 
 .projects-wrapper {
-    position: relative; /* Ensure proper positioning for arrows */
-    overflow: hidden; /* Hide overflow to maintain boundaries */
-    width: 100%; /* Full width of the container */
-    display: flex; /* Flex container for vertical alignment */
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center; /* Center align items horizontally */
-}
-
-.projects-content {
-    display: flex; /* Keep the items in a vertical line */
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center; /* Center items horizontally */
-    transition: transform 0.3s ease; /* Smooth transition for sliding effect */
-    overflow: hidden; /* Hide overflow */
-    height: 400px; /* Adjust based on desired height */
-    width: 100%; /* Full width of the container */
-}
-
-.project-item {
-    width: 80%; /* Adjust based on design */
-    margin: 10px 0; /* Space between items */
-    background: #f8f9fa; /* Background color for project items */
-    padding: 20px; /* Padding inside each project item */
-    border-radius: 5px; /* Optional: Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for depth */
-    text-align: left; /* Align text inside the project item */
-    display: flex; /* Flexbox for alignment */
-    flex-direction: column; /* Arrange text vertically */
-}
-
-/* Center align the middle item */
-.project-item.middle {
-    width: 90%; /* Slightly larger width for the middle item */
-    font-size: 1.2rem; /* Adjust font size for the middle item */
-}
-
-/* Carousel Navigation Arrows */
-.carousel-arrow {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 20px 0;
+}
+
+.projects-content {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 60%; /* Adjust as needed */
+}
+
+.project-item {
+    flex: 0 0 30%; /* Show three projects at a time */
+    margin: 0 15px; /* Space between projects */
+    background-color: #ff7300;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.project-item.middle {
+    transform: scale(1.1); /* Highlight the middle project */
+}
+
+.carousel-arrow {
+    font-size: 2rem;
+    color: #ff7300;
     cursor: pointer;
-    z-index: 1;
+    padding: 0 20px;
+    user-select: none;
+    transition: color 0.3s;
 }
 
-.up-arrow {
-    top: 10px; /* Position the up arrow */
+.carousel-arrow:hover {
+    color: #ff4700;
 }
 
-.down-arrow {
-    bottom: 10px; /* Position the down arrow */
+/* For responsive design */
+@media (max-width: 768px) {
+    .projects-content {
+        width: 90%;
+    }
+
+    .project-item {
+        flex: 0 0 40%;
+    }
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
 }
 
 /* Optional: Styling for scrollbar */

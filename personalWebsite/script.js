@@ -11,25 +11,26 @@ if (typedNameElement) {
         const deletingSpeed = 100; // Speed for deleting
         const delayAfterComplete = 2000; // Delay before deleting
 
-        if (!isDeleting && charIndex <= nameToType.length) {
-            // Type out the name
-            typedNameElement.textContent = nameToType.substring(0, charIndex);
-            charIndex++;
-        } else if (isDeleting && charIndex >= 0) {
-            // Delete the name
-            typedNameElement.textContent = nameToType.substring(0, charIndex);
-            charIndex--;
-        }
+        // Set the typed content
+        typedNameElement.textContent = nameToType.substring(0, charIndex);
 
-        if (charIndex === nameToType.length) {
-            isDeleting = true; // Start deleting after typing the full name
-            setTimeout(typeAnimation, delayAfterComplete); // Wait before starting to delete
-        } else if (charIndex === 0 && isDeleting) {
-            isDeleting = false; // Reset after deletion is complete
-            setTimeout(typeAnimation, typingSpeed); // Restart typing animation
+        if (!isDeleting) {
+            if (charIndex < nameToType.length) {
+                charIndex++;
+                setTimeout(typeAnimation, typingSpeed);
+            } else {
+                // Pause before deleting
+                setTimeout(() => isDeleting = true, delayAfterComplete);
+                setTimeout(typeAnimation, delayAfterComplete);
+            }
         } else {
-            // Continue typing or deleting with constant speed
-            setTimeout(typeAnimation, isDeleting ? deletingSpeed : typingSpeed);
+            if (charIndex > 0) {
+                charIndex--;
+                setTimeout(typeAnimation, deletingSpeed);
+            } else {
+                isDeleting = false;
+                setTimeout(typeAnimation, typingSpeed);
+            }
         }
     }
 
@@ -40,30 +41,42 @@ if (typedNameElement) {
 }
 
 // Carousel Functionality
-const projectWrapper = document.querySelector('.projects-wrapper');
+// Carousel Functionality with Circular Shifting
 const projectsContent = document.querySelector('.projects-content');
-const projectItems = Array.from(document.querySelectorAll('.project-item'));
-const totalProjects = projectItems.length;
-const visibleCount = 3; // Number of projects visible at once
-const middleIndex = Math.floor(visibleCount / 2);
-let currentIndex = middleIndex; // Start from the middle
+let projectItems = Array.from(document.querySelectorAll('.project-item')); // Get all the project items
+let currentIndex = 0; // Start from the first project
 
 function updateCarousel() {
-    const itemHeight = 120; // Adjust based on your project item height
-    const offset = -(currentIndex * itemHeight); // Adjust the offset based on item height
-    projectsContent.style.transform = `translateY(${offset}px)`;
-    projectItems.forEach((item, index) => {
-        item.classList.toggle('middle', index === (currentIndex + middleIndex) % totalProjects);
+    projectsContent.innerHTML = ''; // Clear the content
+    
+    // Re-arrange the projectItems array for the current index
+    const visibleProjects = [
+        projectItems[currentIndex % projectItems.length],
+        projectItems[(currentIndex + 1) % projectItems.length],
+        projectItems[(currentIndex + 2) % projectItems.length]
+    ];
+
+    // Append visible projects to the container
+    visibleProjects.forEach(project => {
+        projectsContent.appendChild(project);
+    });
+
+    // Highlight the middle project
+    visibleProjects.forEach((item, index) => {
+        item.classList.remove('middle');
+        if (index === 1) {
+            item.classList.add('middle'); // Make the second project larger (middle one)
+        }
     });
 }
 
-document.querySelector('.up-arrow').addEventListener('click', () => {
-    currentIndex = (currentIndex === 0) ? totalProjects - visibleCount : currentIndex - 1;
+document.querySelector('.left-arrow').addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? projectItems.length - 1 : currentIndex - 1;
     updateCarousel();
 });
 
-document.querySelector('.down-arrow').addEventListener('click', () => {
-    currentIndex = (currentIndex === totalProjects - visibleCount) ? 0 : currentIndex + 1;
+document.querySelector('.right-arrow').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % projectItems.length;
     updateCarousel();
 });
 
