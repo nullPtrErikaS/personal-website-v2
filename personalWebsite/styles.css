@@ -92,7 +92,7 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero {
-        height: 35vh;
+        height: 34vh;
     }
 
     .hero-content {
@@ -116,7 +116,7 @@
     }
 
     #typed-name {
-        font-size: 8vw;
+        font-size: 8.25vw;
         margin-top: 1rem;
     }
 }
@@ -185,7 +185,7 @@
 .about h2 {
     font-size: 2.5rem; /* Larger font size for the heading */
     margin-bottom: 20px; /* Space below the header */
-    font-weight: 650; /* Bold heading */
+    font-weight: 640; /* Bold heading */
 }
 
 /* About Section Paragraph (p) */
@@ -203,11 +203,11 @@
     }
 
     .about h2 {
-        font-size: 1.75rem; /* Adjust heading size on smaller screens */
+        font-size: 1.5rem; /* Adjust heading size on smaller screens */
     }
 
     .about p {
-        font-size: 1.05rem; /* Adjust paragraph font size for smaller screens */
+        font-size: 1rem; /* Adjust paragraph font size for smaller screens */
         width: 90%;
     }
 }
@@ -227,50 +227,93 @@
     margin: 20px 0;
 }
 
-.projects-content {
+/* Project Item */
+.project-item {
+    text-decoration: none; /* Remove underline from links */
+    color: #fff; /* Text color for project items */
     display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    width: 60%; /* Adjust as needed */
+    align-items: center; /* Center content vertically */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ff7300; /* Background color for project items */
+    transition: transform 0.3s, background-color 0.3s; /* Smooth transitions */
+    overflow: hidden; /* Hide overflow to maintain layout */
 }
 
-.project-item {
-    flex: 0 0 30%; /* Show three projects at a time */
-    margin: 0 15px; /* Space between projects */
-    background-color: #ff7300;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    transition: transform 0.3s;
+.project-item:hover {
+    background-color: #ff5e00; /* Change background color on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Project Image */
+.project-image {
+    flex-shrink: 0; /* Prevent the image from shrinking */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.project-image img {
+    width: 150px; /* Width of the project image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Project Content */
+.project-content {
+    text-align: left; /* Align text to the left */
+}
+
+.project-content h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.project-description {
+    font-size: .8rem;
+    margin: 10px 0;
+}
+
+.project-skills {
+    font-size: 0.7rem;
+    color: #f0f0f0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .project-item {
+        flex-direction: column; /* Stack image and text vertically on small screens */
+        align-items: flex-start;
+        text-align: center; /* Center text horizontally */
+        flex: 0 0 40%;
+    }
+
+    .project-image {
+        margin: 0 0 10px 0; /* Space below image */
+    }
+
+    .project-image img {
+        width: 100%; /* Make the image responsive */
+    }
+
+    .projects-content {
+        width: 90%;
+    }
 }
 
 .project-item.middle {
-    transform: scale(1.1); /* Highlight the middle project */
+    transform: scale(1.3); /* Highlight the middle project */
 }
 
 .carousel-arrow {
     font-size: 2rem;
     color: #ff7300;
     cursor: pointer;
-    padding: 0 20px;
+    padding: 0 25px;
     user-select: none;
     transition: color 0.3s;
 }
 
 .carousel-arrow:hover {
     color: #ff4700;
-}
-
-/* For responsive design */
-@media (max-width: 768px) {
-    .projects-content {
-        width: 90%;
-    }
-
-    .project-item {
-        flex: 0 0 40%;
-    }
 }
 
 .left-arrow {
@@ -295,6 +338,12 @@
     background-color: #555; /* Color of the scrollbar thumb on hover */
 }
 
+.projects h2 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin-bottom: 40px; /* Space below the header */
+    font-weight: 640; /* Bold heading */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .projects h2 {
@@ -305,3 +354,253 @@
         width: 90%; /* Adjust width for smaller screens */
     }
 }
+
+.orange-box {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background-color: #ff7300;
+    z-index: 0; /* Ensure it's behind the text */
+}
+
+
+/* Experience Section */
+.experience {
+    background-color: #f8f9fa; /* Light background color */
+    color: #000; /* Text color */
+    padding: 50px 0; /* Padding for top and bottom */
+    width: 100vw; /* Full viewport width */
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+/* Timeline Container */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Timeline Items */
+.timeline-item {
+    padding: 20px;
+    position: relative;
+    border-left: 2px solid #ff7300; /* Vertical line */
+    margin-bottom: 40px;
+}
+
+/* Timeline Icon */
+.timeline-icon {
+    position: absolute;
+    left: -7px; /* Offset to align with the line */
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #ff7300; /* Circle color */
+    border: 2px solid #fff; /* White border for contrast */
+    z-index: 1;
+}
+
+/* Timeline Content */
+.timeline-content {
+    padding-left: 30px; /* Space between the line and content */
+    background-color: #fff; /* Background color of the content */
+    border-radius: 5px; /* Rounded corners for content box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for content */
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.timeline-date {
+    font-size: 1rem;
+    color: #666;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.6; /* Increase line height for readability */
+}
+
+/* Experience Item */
+.experience-item {
+    margin-bottom: 30px; /* Space between experience items */
+    background-color: #f8f9fa; /* Background color for items */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.experience-item h2 {
+    font-size: 2.5rem; /* Heading size */
+    margin-bottom: 30px; /* Space below the heading */
+    font-weight: 600; /* Bold heading */
+}
+
+.experience-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px; /* Space below the role title */
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between experience items */
+}
+
+.experience-item h4 {
+    font-size: 1.2rem; /* Company name size */
+    margin: 5px 0;
+    color: #555; /* Slightly lighter color for company names */
+}
+
+.experience-item p {
+    font-size: 1rem; /* Text size */
+    line-height: 1.6; /* Line height for readability */
+    margin: 10px 0; /* Space between paragraphs */
+}
+
+/* Resume Button */
+.btn-primary {
+    background-color: #ff7300; /* Background color for the button */
+    border-color: #ff7300; /* Border color for the button */
+    font-size: 1rem; /* Font size */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.btn-primary:hover {
+    background-color: #ff5e00; /* Darker color on hover */
+    border-color: #ff5e00; /* Darker border color on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .experience h2 {
+        font-size: 1.75rem; /* Smaller heading size */
+    }
+
+    .experience-item {
+        padding: 15px;
+    }
+
+    .experience-item h3 {
+        font-size: 1.25rem; /* Smaller job title size */
+    }
+
+    .experience-item h4 {
+        font-size: 1rem; /* Smaller company name size */
+    }
+}
+
+/* Contact Section */
+.contact {
+    background-color: #f8f9fa; /* Light background color */
+    color: #000000; /* Text color */
+}
+
+.contact h2 {
+    font-size: 2.5rem; /* Heading size */
+    margin-bottom: 20px; /* Space below the heading */
+    font-weight: 600; /* Bold heading */
+}
+
+.contact p {
+    font-size: 1.125rem; /* Paragraph text size */
+    margin-bottom: 30px; /* Space below the paragraph */
+}
+
+.contact-form {
+    max-width: 600px; /* Max width for the form */
+    margin: 0 auto; /* Center the form */
+    padding: 20px;
+    background-color: #ffffff; /* Background color for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+.form-group label {
+    display: block; /* Make label block-level */
+    margin-bottom: 5px; /* Space below the label */
+    font-weight: 600; /* Bold label text */
+}
+
+.form-control {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #ced4da; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.btn-primary {
+    background-color: #ff5e00; /* Primary button color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Button padding */
+    color: #ffffff; /* Button text color */
+    font-size: 1rem; /* Button text size */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.btn-primary:hover {
+    background-color: #e54a00; /* Darker color on hover */
+}
+
+.mt-4 {
+    margin-top: 1.5rem; /* Space above element */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact h2 {
+        font-size: 1.75rem; /* Smaller heading size */
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+
+    .form-control {
+        padding: 8px; /* Smaller padding for inputs */
+    }
+
+    .btn-primary {
+        font-size: 0.875rem; /* Smaller button text size */
+        padding: 8px 16px; /* Smaller button padding */
+    }
+}
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    gap: 20px; /* Space between icons */
+}
+
+.social-icon {
+    display: inline-block;
+}
+
+.social-icon img {
+    width: 30px; /* Size of the icons */
+    height: auto; /* Maintain aspect ratio */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-icon:hover img {
+    opacity: 0.7; /* Slightly fade icons on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .social-icon img {
+        width: 25px; /* Smaller icons on mobile */
+    }
+}
+

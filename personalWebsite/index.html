@@ -49,7 +49,7 @@
                 <img src="images/profile-picture.png" alt="Profile Picture" class="profile-picture">
             </div>
         </div>
-    </section>     
+    </section>       
 
     <!-- About Section -->
 <section class="about py-5" id="about">
@@ -62,20 +62,139 @@
 </section>
 
     <!-- Projects Section -->
-    <section class="projects">
-        <h2 class="text-center">My Projects</h2>
-        <div class="projects-wrapper">
-            <div class="carousel-arrow left-arrow">&#9664;</div>
-            <div class="projects-content d-flex justify-content-center">
-                <div class="project-item normal">Project 1</div>
-                <div class="project-item middle">Project 2</div>
-                <div class="project-item normal">Project 3</div>
-                <div class="project-item normal">Project 4</div>
-                <div class="project-item normal">Project 5</div>
-            </div>
-            <div class="carousel-arrow right-arrow">&#9654;</div>
+<section class="projects">
+    <h2 class="text-center">My Projects</h2>
+    <div class="projects-wrapper">
+        <div class="carousel-arrow left-arrow">&#9664;</div>
+        <div class="projects-content d-flex justify-content-center">
+            <!-- Project 1 -->
+            <a href="https://example.com/project1" target="_blank" class="project-item normal">
+                <div class="project-image">
+                    <img src="images/project1.png" alt="Project 1">
+                </div>
+                <div class="project-content">
+                    <h3>Project 1</h3>
+                    <p class="project-description">A brief description of Project 1. This project involves...</p>
+                    <p class="project-skills">Skills: HTML, CSS, JavaScript</p>
+                </div>
+            </a>
+            <!-- Project 2 -->
+            <a href="https://example.com/project2" target="_blank" class="project-item middle">
+                <div class="project-image">
+                    <img src="images/project2.png" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <h3>Project 2</h3>
+                    <p class="project-description">A brief description of Project 2. This project involves...</p>
+                    <p class="project-skills">Skills: React, Node.js</p>
+                </div>
+            </a>
+            <!-- Project 3 -->
+            <a href="https://example.com/project3" target="_blank" class="project-item normal">
+                <div class="project-image">
+                    <img src="images/project3.png" alt="Project 3">
+                </div>
+                <div class="project-content">
+                    <h3>Project 3</h3>
+                    <p class="project-description">A brief description of Project 3. This project involves...</p>
+                    <p class="project-skills">Skills: Python, Django</p>
+                </div>
+            </a>
+            <!-- Project 4 -->
+            <a href="https://example.com/project4" target="_blank" class="project-item normal">
+                <div class="project-image">
+                    <img src="images/project4.png" alt="Project 4">
+                </div>
+                <div class="project-content">
+                    <h3>Project 4</h3>
+                    <p class="project-description">A brief description of Project 4. This project involves...</p>
+                    <p class="project-skills">Skills: PHP, MySQL</p>
+                </div>
+            </a>
+            <!-- Project 5 -->
+            <a href="https://example.com/project5" target="_blank" class="project-item normal">
+                <div class="project-image">
+                    <img src="images/project5.png" alt="Project 5">
+                </div>
+                <div class="project-content">
+                    <h3>Project 5</h3>
+                    <p class="project-description">A brief description of Project 5. This project involves...</p>
+                    <p class="project-skills">Skills: Vue.js, Firebase</p>
+                </div>
+            </a>
         </div>
-    </section>    
+        <div class="carousel-arrow right-arrow">&#9654;</div>
+    </div>
+</section>
+
+
+   <!-- Experience Section -->
+<section class="experience py-5" id="experience">
+    <div class="container">
+        <h2 class="text-center">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <div class="timeline-content">
+                    <h3>Role 1</h3>
+                    <p class="timeline-date">Company Name - Dates</p>
+                    <p>Brief description of responsibilities and achievements. Highlight key accomplishments and skills gained.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <div class="timeline-content">
+                    <h3>Role 2</h3>
+                    <p class="timeline-date">Company Name - Dates</p>
+                    <p>Brief description of responsibilities and achievements. Highlight key accomplishments and skills gained.</p>
+                </div>
+            </div>
+            <!-- Add more timeline items as needed -->
+        </div>
+
+        <!-- Resume Button -->
+        <div class="text-center">
+            <a href="resume.pdf" class="btn btn-primary" target="_blank">Download Resume</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact py-5" id="contact">
+    <div class="container text-center">
+        <h2>Contact Me</h2>
+        <p>If you have any questions or would like to get in touch, feel free to drop me a message using the form below or reach out via email.</p>
+        <form action="your-server-endpoint" method="post" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        <p class="mt-4">Or email me directly at <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        
+        <div class="social-media mt-4">
+            <a href="https://twitter.com/yourusername" target="_blank" class="social-icon">
+                <img src="icons/twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon">
+                <img src="icons/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/yourusername" target="_blank" class="social-icon">
+                <img src="icons/github.svg" alt="GitHub">
+            </a>
+            <!-- Add more social media links as needed -->
+        </div>
+    </div>
+</section>
 
     <!-- Bootstrap JS and Dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

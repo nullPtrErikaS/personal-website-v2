@@ -1,40 +1,35 @@
-// Typing Animation
 const nameToType = "Erika Sy ";  // Replace with your name
 const typedNameElement = document.getElementById('typed-name');
 
 if (typedNameElement) {
     let charIndex = 0;
     let isDeleting = false;
+    let typingDelay = 150;
+    let deletingDelay = 100;
+    let pauseAfterTyping = 2500; // Increased delay after typing
 
     function typeAnimation() {
-        const typingSpeed = 150; // Speed for typing
-        const deletingSpeed = 100; // Speed for deleting
-        const delayAfterComplete = 2000; // Delay before deleting
-
-        // Set the typed content
         typedNameElement.textContent = nameToType.substring(0, charIndex);
 
         if (!isDeleting) {
             if (charIndex < nameToType.length) {
                 charIndex++;
-                setTimeout(typeAnimation, typingSpeed);
+                setTimeout(typeAnimation, typingDelay);
             } else {
-                // Pause before deleting
-                setTimeout(() => isDeleting = true, delayAfterComplete);
-                setTimeout(typeAnimation, delayAfterComplete);
+                setTimeout(() => isDeleting = true, pauseAfterTyping);
+                setTimeout(typeAnimation, pauseAfterTyping);
             }
         } else {
             if (charIndex > 0) {
                 charIndex--;
-                setTimeout(typeAnimation, deletingSpeed);
+                setTimeout(typeAnimation, deletingDelay);
             } else {
                 isDeleting = false;
-                setTimeout(typeAnimation, typingSpeed);
+                setTimeout(typeAnimation, typingDelay);
             }
         }
     }
 
-    // Start the typing animation
     typeAnimation();
 } else {
     console.error('Element with ID "typed-name" not found.');
