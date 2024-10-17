@@ -79,12 +79,12 @@
 .profile-picture {
     width: auto;
     height: calc(60vh * 0.90);
-    max-height: 525px;
+    max-height: 1000px;
     border-radius: 0;
     object-fit: cover;
     position: absolute; /* Fix the profile picture’s position */
     top: 50%; /* Center it vertically */
-    right: 5%; /* Position it to the right */
+    right: -17%; /* Position it to the right */
     transform: translateY(-50%); /* Adjust for vertical centering */
     z-index: 0; /* Ensure it's behind the text */
 }

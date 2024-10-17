@@ -35,54 +35,61 @@ if (typedNameElement) {
 }
 
 // Carousel Functionality
-const projectsContent = document.querySelector('.projects-content');
-const projectItems = Array.from(document.querySelectorAll('.project-item')); // Convert NodeList to array
-let currentIndex = 0;
+function setupCarousel() {
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const projectsContent = document.querySelector('.projects-content');
+    const projectItems = document.querySelectorAll('.project-item');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
 
-// Carousel update function
-function updateCarousel() {
-    // Remove all child elements from the container
-    while (projectsContent.firstChild) {
-        projectsContent.removeChild(projectsContent.firstChild);
+    if (!projectsContent || projectItems.length === 0) return console.error('Carousel setup failed: No content found.');
+
+    function updateCarousel() {
+        const visibleProjectsCount = 3; // Number of projects to display at once
+        projectItems.forEach((item, index) => {
+            // Determine if the project should be visible
+            const start = currentIndex - Math.floor(visibleProjectsCount / 2);
+            const end = currentIndex + Math.floor(visibleProjectsCount / 2);
+            if (index >= start && index <= end) {
+                item.style.display = 'flex'; // Show the project
+            } else {
+                item.style.display = 'none'; // Hide the project
+            }
+        });
+    
+        // Update dot indicators
+        updateDots();
     }
 
-    // Calculate visible projects
-    const visibleProjects = [
-        projectItems[currentIndex % projectItems.length],
-        projectItems[(currentIndex + 1) % projectItems.length],
-        projectItems[(currentIndex + 2) % projectItems.length]
-    ];
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
 
-    // Append visible projects to the container
-    visibleProjects.forEach((project) => {
-        projectsContent.appendChild(project);
+    function handleArrowClick(direction) {
+        if (direction === 'left') {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : projectItems.length - 1;
+        } else {
+            currentIndex = (currentIndex + 1) % projectItems.length;
+        }
+        updateCarousel();
+    }
+
+    leftArrow.addEventListener('click', () => handleArrowClick('left'));
+    rightArrow.addEventListener('click', () => handleArrowClick('right'));
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
     });
 
-    // Apply class to the middle project
-    visibleProjects.forEach((item, index) => {
-        item.classList.toggle('middle', index === 1);
-    });
+    updateCarousel(); // Initialize the carousel to show the first item
 }
 
-// Debouncing click events for the carousel
-let isCarouselTransitioning = false;
-
-function handleArrowClick(direction) {
-    if (isCarouselTransitioning) return; // Prevent multiple clicks during transition
-
-    isCarouselTransitioning = true;
-    currentIndex = (direction === 'left')
-        ? (currentIndex === 0 ? projectItems.length - 1 : currentIndex - 1)
-        : (currentIndex + 1) % projectItems.length;
-    
-    updateCarousel();
-
-    // Set a short timeout before allowing the next click
-    setTimeout(() => isCarouselTransitioning = false, 500);
-}
-
-document.querySelector('.left-arrow').addEventListener('click', () => handleArrowClick('left'));
-document.querySelector('.right-arrow').addEventListener('click', () => handleArrowClick('right'));
-
-// Initialize the carousel on page load
-updateCarousel();
+document.addEventListener('DOMContentLoaded', () => {
+    setupCarousel(); // Set up the carousel when the document is fully loaded
+});
