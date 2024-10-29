@@ -1,6 +1,26 @@
+/* Global Styles */
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Specific Container Fixes */
+.container, .hero, .projects, .about, .experience {
+    width: 100%; /* Make sure main containers don’t cause overflow */
+    overflow-x: hidden;
+}
+
 /* Hero Section */
 .hero {
-    height: 60vh; /* 60% of the viewport height */
+    height: 65vh; /* 65% of the viewport height */
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: space-between; /* Space between text and image */
@@ -21,6 +41,15 @@
     position: relative; /* Position the text content relative to its parent */
 }
 
+.hero-background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Place it above the background */
+}
+
 /* Text content styling */
 .text-content {
     flex: 1;
@@ -39,7 +68,7 @@
     color: #000; /* Text color */
     display: block; /* Ensure it's treated as a block, so the name appears below */
     white-space: nowrap; /* Prevent wrapping */
-    line-height: 1.2; /* Adjust line-height to maintain vertical alignment */
+    line-height: 1; /* Adjust line-height to maintain vertical alignment */
     margin-bottom: 0.5rem; /* Space between "Hello, I'm" and the name */
 }
 
@@ -47,7 +76,7 @@
 #typed-name {
     color: #ff5e00; /* Color for the typed name */
     font-family: monospace; /* Fixed-width font */
-    font-size: 5.5vw; /* Slightly smaller font size */
+    font-size: 5.75vw; /* Slightly smaller font size */
     font-weight: 600; /* Slightly thicker font weight */
     display: inline-block; /* Keeps the name inline below the title */
     white-space: nowrap; /* Prevent wrapping */
@@ -78,21 +107,21 @@
 /* Profile Picture */
 .profile-picture {
     width: auto;
-    height: calc(60vh * 0.90);
+    height: calc(65.5vh * 0.90);
     max-height: 1000px;
     border-radius: 0;
     object-fit: cover;
     position: absolute; /* Fix the profile picture’s position */
     top: 50%; /* Center it vertically */
-    right: -17%; /* Position it to the right */
+    right: 17%; /* Position it to the right */
     transform: translateY(-50%); /* Adjust for vertical centering */
-    z-index: 0; /* Ensure it's behind the text */
+    z-index: 1; /* Ensure it's behind the text */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero {
-        height: 34vh;
+        height: 55vh;
     }
 
     .hero-content {
@@ -100,10 +129,10 @@
     }
 
     .profile-picture {
-        height: calc(50vh * 0.90);
+        height: calc(55vh * 0.90);
         max-height: 275px;
         top: 50%; /* Still center it vertically */
-        right: 2%; /* Adjust positioning for smaller screens */
+        right: 10%; /* Adjust positioning for smaller screens */
         transform: translateY(-50%);
     }
 
@@ -117,8 +146,9 @@
 
     #typed-name {
         font-size: 8.25vw;
-        margin-top: 1rem;
+        margin-top: 0.25rem;
     }
+   
 }
 
 /* Navigation Bar */
@@ -132,7 +162,7 @@
 .navbar-nav {
     display: flex;
     justify-content: space-around; /* Evenly spreads items across the available space */
-    width: 60%; /* Adjusts the width to 60% of its container, modify as needed */
+    width: 45%; /* Adjusts the width to 60% of its container, modify as needed */
 }
 
 .nav-item {
@@ -156,7 +186,7 @@
     position: absolute;
     width: 100%;
     height: 4px; /* Thickness of the underline */
-    background-color: #ffa500; /* Orange color */
+    background-color: #ff5e00; /* Orange color */
     bottom: 0;
     left: 0;
     transform: scaleX(0);
@@ -200,6 +230,17 @@
     margin-top: 20px; /* Add space above the paragraph */
 }
 
+.orange-box {
+    position: absolute; /* Position relative to the .hero section */
+    top: 0; /* Align to the top of the .hero section */
+    right: 0px; /* Move it 20px away from the right edge of .hero */
+    width: calc(32.3vw * 0.90);
+    height: 67vh; /* Adjust the height within the hero section */
+    background-color: #ff7300;
+    z-index: 0;
+}
+
+/* Responsive Adjustments */
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .about {
@@ -215,7 +256,32 @@
         font-size: 1rem; /* Adjust paragraph font size for smaller screens */
         width: 90%;
     }
+
+    .orange-box {
+        width: calc(32.3vw * 0.90); /* Calculate the width based on 50% of the viewport width */
+        height: 65.5vh; /* Adjust the height if needed */
+        right: 10px; /* Optional adjustment for positioning */
+    }
+    /* Navigation Bar Adjustments */
+    .navbar {
+        padding: 0.5rem 1rem; /* Reduce padding */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items */
+    }
+
+    .nav-item {
+        margin: 5px 0; /* Add vertical spacing between items */
+    }
+
+    .nav-link {
+        font-size: 1rem; /* Reduce font size */
+        padding: 5px 10px; /* Adjust padding for smaller screens */
+    }
 }
+
 
 /* Projects Section */
 .projects {
@@ -360,17 +426,6 @@
     }
 }
 
-.orange-box {
-    position: absolute;
-    top: 10%;
-    left: 0;
-    width: 150px;
-    height: 150px;
-    background-color: #ff7300;
-    z-index: 0; /* Ensure it's behind the text */
-}
-
-
 /* Experience Section */
 .experience {
     background-color: #f8f9fa; /* Light background color */
@@ -398,7 +453,7 @@
 /* Timeline Icon */
 .timeline-icon {
     position: absolute;
-    left: -7px; /* Offset to align with the line */
+    left: 7px; /* Offset to align with the line */
     width: 14px;
     height: 14px;
     border-radius: 50%;

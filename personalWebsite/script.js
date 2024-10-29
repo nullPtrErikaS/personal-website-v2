@@ -5,8 +5,8 @@ if (typedNameElement) {
     let charIndex = 0;
     let isDeleting = false;
     const typingDelay = 150;
-    const deletingDelay = 100;
-    const pauseAfterTyping = 2500; // Delay after name is fully typed
+    const deletingDelay = 125;
+    const pauseAfterTyping = 3400; // Delay after name is fully typed
 
     function typeAnimation() {
         // Update the displayed text
