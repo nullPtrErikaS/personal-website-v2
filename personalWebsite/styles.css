@@ -107,13 +107,13 @@ html, body {
 /* Profile Picture */
 .profile-picture {
     width: auto;
-    height: calc(65.5vh * 0.90);
+    height: calc(72vh * 0.90);
     max-height: 1000px;
     border-radius: 0;
     object-fit: cover;
     position: absolute; /* Fix the profile picture’s position */
     top: 50%; /* Center it vertically */
-    right: 17%; /* Position it to the right */
+    right: 4%; /* Position it to the right */
     transform: translateY(-50%); /* Adjust for vertical centering */
     z-index: 1; /* Ensure it's behind the text */
 }
@@ -121,7 +121,7 @@ html, body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero {
-        height: 55vh;
+        height: 45vh;
     }
 
     .hero-content {
@@ -129,10 +129,10 @@ html, body {
     }
 
     .profile-picture {
-        height: calc(55vh * 0.90);
+        height: 45vh;
         max-height: 275px;
         top: 50%; /* Still center it vertically */
-        right: 10%; /* Adjust positioning for smaller screens */
+        right: 20%; /* Adjust positioning for smaller screens */
         transform: translateY(-50%);
     }
 
