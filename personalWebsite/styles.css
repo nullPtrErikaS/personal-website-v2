@@ -1,26 +1,16 @@
-/* Global Styles */
-html, body {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
+
+
+:root {
+    --edge-padding: 5%;  /* Adjust this value as needed */
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-/* Specific Container Fixes */
-.container, .hero, .projects, .about, .experience {
-    width: 100%; /* Make sure main containers don’t cause overflow */
+body {
     overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
-    height: 65vh; /* 65% of the viewport height */
+    height: 69.5vh; /* 65% of the viewport height */
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: space-between; /* Space between text and image */
@@ -33,12 +23,12 @@ html, body {
 
 /* Flex container for hero content */
 .hero-content {
+    padding-left: var(--edge-padding); /* Applies to the entire left content padding */
+    padding-right: var(--edge-padding); /* Ensures padding is the same on the right for balance */
     display: flex;
+    justify-content: space-between; /* This will help with equal distribution */
+    align-items: center;
     width: 100%;
-    padding: 0 5%; /* Responsive padding */
-    box-sizing: border-box; /* Include padding in width calculations */
-    align-items: center; /* Center items vertically */
-    position: relative; /* Position the text content relative to its parent */
 }
 
 .hero-background-elements {
@@ -63,7 +53,7 @@ html, body {
 
 /* Title "Hello, I'm" */
 .hero h1 {
-    font-size: 2vw; /* Slightly smaller font size */
+    font-size: 1.75vw; /* Slightly smaller font size */
     margin: 0;
     color: #000; /* Text color */
     display: block; /* Ensure it's treated as a block, so the name appears below */
@@ -76,14 +66,14 @@ html, body {
 #typed-name {
     color: #ff5e00; /* Color for the typed name */
     font-family: monospace; /* Fixed-width font */
-    font-size: 5.75vw; /* Slightly smaller font size */
+    font-size: 5.5vw; /* Slightly smaller font size */
     font-weight: 600; /* Slightly thicker font weight */
     display: inline-block; /* Keeps the name inline below the title */
     white-space: nowrap; /* Prevent wrapping */
     overflow: hidden;
     position: relative;
     margin-top: 0; /* Remove extra margin */
-    height: 9vw; /* Set fixed height to prevent layout shifts */
+    height: 10vw; /* Set fixed height to prevent layout shifts */
 }
 
 /* Cursor Effect */
@@ -107,48 +97,29 @@ html, body {
 /* Profile Picture */
 .profile-picture {
     width: auto;
-    height: calc(72vh * 0.90);
+    height: calc(77.5vh * 0.90);
     max-height: 1000px;
     border-radius: 0;
     object-fit: cover;
-    position: absolute; /* Fix the profile picture’s position */
-    top: 50%; /* Center it vertically */
-    right: 4%; /* Position it to the right */
-    transform: translateY(-50%); /* Adjust for vertical centering */
-    z-index: 1; /* Ensure it's behind the text */
+    position: absolute;
+    top: 50%;
+    right: var(--edge-padding); /* Use the same variable for right spacing */
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero {
-        height: 45vh;
-    }
+/* Default size for smaller screens */
+.responsive-circle {
+    max-width: 200px;
+    max-height: 200px;
+}
 
-    .hero-content {
-        padding: 0 1%; /* Adjust padding for smaller screens */
+/* Adjust size on larger screens */
+@media (min-width: 1200px) {
+    .responsive-circle {
+        max-width: 300px;
+        max-height: 300px;
     }
-
-    .profile-picture {
-        height: 45vh;
-        max-height: 275px;
-        top: 50%; /* Still center it vertically */
-        right: 20%; /* Adjust positioning for smaller screens */
-        transform: translateY(-50%);
-    }
-
-    .text-content {
-        margin-right: 1%;
-    }
-
-    .hero h1 {
-        font-size: 3.5vw;
-    }
-
-    #typed-name {
-        font-size: 8.25vw;
-        margin-top: 0.25rem;
-    }
-   
 }
 
 /* Navigation Bar */
@@ -199,9 +170,74 @@ html, body {
     transform-origin: bottom left;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 42vh;
+    }
+
+    .hero-content {
+        padding: 0 1%; /* Adjust padding for smaller screens */
+    }
+
+    .profile-picture {
+        max-height: 370px;
+        top: 54%; /* Still center it vertically */
+        right: -20%; /* Adjust positioning for smaller screens */
+        transform: translateY(-50%);
+    }
+
+    .text-content {
+        margin-right: 1%;
+    }
+
+    .hero h1 {
+        height: 25vw;
+        font-size: 4vw;
+    }
+
+    #typed-name {
+        font-size: 8.5vw;
+        margin-top: 0.25rem;
+    }
+
+    .navbar {
+        justify-content: center; /* This should center the navigation bar container */
+    }
+
+    .navbar-nav {
+        flex-direction: row; /* Ensures the navbar-nav items are in a row */
+        justify-content: center; /* Centers the items within the navbar-nav */
+        align-items: center; /* Vertically aligns the items (if needed) */
+        width: 100%; /* Adjust the width to 100% to use the full width of its container */
+    }
+
+    .nav-item {
+        margin: 0 10px; /* Adjust margin for visual spacing */
+    }
+
+    .nav-link {
+        font-size: .85rem; /* Keeps the font size small */
+        padding: 8px 12px; /* Ensures sufficient padding */
+    }
+
+    .nav-link::after {
+        height: 3px; /* Keeps the hover underline consistent */
+        background-color: #ff5e00; /* Ensures the hover effect is visible */
+        transform: scaleX(0); /* Starts the transform effect from scaled x to 0 */
+        transition: transform 0.25s ease-out; /* Smooth transition for hover effect */
+    }
+
+    .nav-link:hover::after {
+        transform: scaleX(1); /* Scales the pseudo-element to full width on hover */
+        transform-origin: center; /* Starts the scaling effect from the center */
+    }
+   
+}
+
 /* About Section */
 .about {
-    background-color: #e9e8e8; /* Grey background color */
+    background-color: #f3f1f1; /* Grey background color */
     color: #000000; /* Text color */
     padding: 50px 0; /* Padding for top and bottom */
     width: 100vw; /* Full viewport width */
@@ -213,6 +249,7 @@ html, body {
 /* About Section Container */
 .about .container {
     max-width: 800px; /* Set a max width for the container */
+    margin: 0 auto; /* Centers the container within its parent */
     padding: 20px; /* Internal padding */
 }
 
@@ -235,26 +272,27 @@ html, body {
     top: 0; /* Align to the top of the .hero section */
     right: 0px; /* Move it 20px away from the right edge of .hero */
     width: calc(32.3vw * 0.90);
-    height: 67vh; /* Adjust the height within the hero section */
+    height: 69.6vh; /* Adjust the height within the hero section */
     background-color: #ff7300;
     z-index: 0;
 }
 
 /* Responsive Adjustments */
-/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .about {
-        padding: 30px 0; /* Adjust padding for smaller screens */
-        min-height: auto; /* Let height adjust naturally */
+    .about .container {
+        padding: 10px; /* Reduced padding might help */
+        width: 90%; /* If max-width is too large for the view, you can use width in % for better control */
     }
 
     .about h2 {
         font-size: 1.5rem; /* Adjust heading size on smaller screens */
+        text-align: center; /* Ensures the title is centered */
     }
 
     .about p {
-        font-size: 1rem; /* Adjust paragraph font size for smaller screens */
-        width: 90%;
+        font-size: 0.9rem; /* Adjust paragraph font size for smaller screens */
+        padding: 0 15px; /* Adds padding to ensure text doesn't touch the edges */
+        text-align: justify; /* Optional: improves readability by justifying text */
     }
 
     .orange-box {
@@ -263,110 +301,83 @@ html, body {
         right: 10px; /* Optional adjustment for positioning */
     }
     /* Navigation Bar Adjustments */
-    .navbar {
-        padding: 0.5rem 1rem; /* Reduce padding */
-    }
-
-    .navbar-nav {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: center; /* Center items */
-    }
-
-    .nav-item {
-        margin: 5px 0; /* Add vertical spacing between items */
-    }
-
-    .nav-link {
-        font-size: 1rem; /* Reduce font size */
-        padding: 5px 10px; /* Adjust padding for smaller screens */
-    }
 }
 
-
 /* Projects Section */
+.container {
+    max-width: 1200px; /* Adjust this value based on your design preference */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Adds padding to the left and right */
+}
+
 .projects {
     padding: 50px 0;
     background-color: #f8f9fa;
     text-align: center;
 }
 
-.projects-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Always two columns */
+    gap: 20px; /* Space between the grid items */
 }
 
-/* Project Item */
-.project-item {
-    text-decoration: none; /* Remove underline from links */
-    color: #fff; /* Text color for project items */
-    display: flex;
-    align-items: center; /* Center content vertically */
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #ff7300; /* Background color for project items */
-    transition: transform 0.3s, background-color 0.3s; /* Smooth transitions */
-    overflow: hidden; /* Hide overflow to maintain layout */
-}
+.projects-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+    gap: 20px; /* Space between rows and columns */
+    padding: 20px; /* Padding around the entire grid */
+    max-width: 1200px; /* Max width of the grid, adjust as needed */
+    margin: auto; /* Center the grid horizontally */
+  }
 
 .project-item:hover {
-    background-color: #ff5e00; /* Change background color on hover */
-    transform: scale(1.05); /* Slightly scale up on hover */
+    transform: scale(1.05); /* Enlarges the box by 5% */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Enhances the shadow for a lifted effect */
 }
 
-/* Project Image */
-.project-image {
-    flex-shrink: 0; /* Prevent the image from shrinking */
-    margin-right: 20px; /* Space between image and text */
+.project-item {
+    background-color: #ff7300; /* Change to your preferred shade of orange */
+    border: 1px solid #cc5c00; /* Optional: add a darker orange border */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Keeps everything within the rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
 }
 
-.project-image img {
-    width: 150px; /* Width of the project image */
+.project-item img {
+    width: 100%; /* Ensure the image covers the width of the item */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 5px; /* Optional: Add rounded corners */
+    display: block; /* Remove any extra space beneath the image */
 }
 
-/* Project Content */
-.project-content {
-    text-align: left; /* Align text to the left */
+.project-info {
+    padding: 15px; /* Padding inside the project info area */
 }
 
-.project-content h3 {
-    margin-top: 0;
-    font-size: 1.3rem;
+.project-info h3 {
+    margin-top: 0; /* Removes default margin */
 }
 
-.project-description {
-    font-size: .8rem;
-    margin: 10px 0;
+.projects h2 {
+    margin-bottom: 30px; /* Adds 30px of space below the title */
+    /* Other styling properties */
 }
 
-.project-skills {
-    font-size: 0.7rem;
-    color: #f0f0f0;
+.project-info p {
+    margin-bottom: 10px; /* Spacing between paragraphs */
+    line-height: 1.4; /* Enhances readability */
 }
+
+.project-info p:last-child {
+    font-style: italic; /* Styling for skills list */
+}
+
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-    .project-item {
-        flex-direction: column; /* Stack image and text vertically on small screens */
-        align-items: flex-start;
-        text-align: center; /* Center text horizontally */
-        flex: 0 0 40%;
-    }
-
-    .project-image {
-        margin: 0 0 10px 0; /* Space below image */
-    }
-
-    .project-image img {
-        width: 100%; /* Make the image responsive */
-    }
-
-    .projects-content {
-        width: 90%;
+@media (max-width: 768px) { /* Adjusting for small devices */
+    .projects-grid {
+        grid-template-columns: 1fr; /* One column on smaller screens */
     }
 }
 
@@ -393,37 +404,6 @@ html, body {
 
 .right-arrow {
     right: 0;
-}
-
-/* Optional: Styling for scrollbar */
-.projects-wrapper::-webkit-scrollbar {
-    height: 8px; /* Height of the scrollbar */
-}
-
-.projects-wrapper::-webkit-scrollbar-thumb {
-    background-color: #888; /* Color of the scrollbar thumb */
-    border-radius: 4px; /* Rounded corners for scrollbar thumb */
-}
-
-.projects-wrapper::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Color of the scrollbar thumb on hover */
-}
-
-.projects h2 {
-    font-size: 2.5rem; /* Larger font size for the heading */
-    margin-bottom: 40px; /* Space below the header */
-    font-weight: 640; /* Bold heading */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .projects h2 {
-        font-size: 1.5rem; /* Adjust heading font size for smaller screens */
-    }
-
-    .project-item {
-        width: 90%; /* Adjust width for smaller screens */
-    }
 }
 
 /* Experience Section */
@@ -453,21 +433,32 @@ html, body {
 /* Timeline Icon */
 .timeline-icon {
     position: absolute;
-    left: 7px; /* Offset to align with the line */
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: #ff7300; /* Circle color */
-    border: 2px solid #fff; /* White border for contrast */
-    z-index: 1;
+    left: -8px; /* Adjust this value as needed to center the dot over the line */
+    top: 10px; /* Adjust based on your specific layout needs */
+    width: 16px; /* Ensure the width and height are sufficient to encircle the dot */
+    height: 16px;
+    background-color: #ff7300; /* Orange color for the dot */
+    border: 3px solid #fff; /* White border to make the dot stand out */
+    border-radius: 50%; /* Makes the dot circular */
+    box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Optional: adds depth with a shadow */
 }
 
 /* Timeline Content */
 .timeline-content {
-    padding-left: 30px; /* Space between the line and content */
-    background-color: #fff; /* Background color of the content */
-    border-radius: 5px; /* Rounded corners for content box */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for content */
+    padding: 20px; /* Increase padding to give more space around the text */
+    min-height: 120px; /* Adjust this value as needed to increase box height */
+    background-color: #fff; /* Just ensuring there's a background */
+    margin-bottom: 20px; /* Adds space between entries */
+    border-radius: 4px; /* Optional rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional shadow for depth */
+}
+
+.timeline-logo {
+    width: 50px; /* Adjust based on your logo size */
+    height: 50px; /* Keep the width and height the same for a square logo */
+    float: left; /* Aligns the logo to the left */
+    margin-right: 15px; /* Adds space between the logo and the text */
+    border-radius: 50%; /* Optional: makes the logo circular */
 }
 
 .timeline-content h3 {
@@ -540,7 +531,7 @@ html, body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .experience h2 {
-        font-size: 1.75rem; /* Smaller heading size */
+        font-size: 1.5rem; /* Smaller heading size */
     }
 
     .experience-item {
@@ -620,7 +611,7 @@ html, body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .contact h2 {
-        font-size: 1.75rem; /* Smaller heading size */
+        font-size: 1.5rem; /* Smaller heading size */
     }
 
     .contact-form {

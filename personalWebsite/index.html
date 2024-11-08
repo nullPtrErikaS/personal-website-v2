@@ -29,25 +29,30 @@
 
     <section class="hero d-flex align-items-center" id="home">
         <div class="hero-background-elements">
-            <svg width="400" height="400" style="position: absolute; top: 19%; left:60%; opacity: 0.4;">
-                <circle cx="190" cy="190" r="190" fill="#ffe4d5" />
+
+            <!-- Responsive Circle -->
+            <svg class="responsive-circle" width="60%" height="60%" style="position: absolute; top: 19%; left: 70%; opacity: 0.4;">
+                <circle cx="=50%" cy="50%" r="50%" fill="#ffe4d5" />
+            </svg>            
+
+            <!-- Responsive Grid of Squares -->
+            <svg width="8%" height="8%" style="position: absolute; top: 30%; right: 15%; opacity: 0.5;">
+                <rect x="0%" y="0%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="25%" y="0%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="50%" y="0%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="0%" y="25%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="25%" y="25%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="50%" y="25%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="0%" y="56.25%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="25%" y="56.25%" width="12.5%" height="12.5%" fill="#cfd8dc" />
+                <rect x="50%" y="56.25%" width="12.5%" height="12.5%" fill="#cfd8dc" />
             </svg>
-            <svg width="80" height="80" style="position: absolute; top: 30%; right: 15%; opacity: 0.5;">
-                <rect x="0" y="0" width="10" height="10" fill="#cfd8dc" />
-                <rect x="20" y="0" width="10" height="10" fill="#cfd8dc" />
-                <rect x="40" y="0" width="10" height="10" fill="#cfd8dc" />
-                <rect x="0" y="20" width="10" height="10" fill="#cfd8dc" />
-                <rect x="20" y="20" width="10" height="10" fill="#cfd8dc" />
-                <rect x="40" y="20" width="10" height="10" fill="#cfd8dc" />
-                <rect x="0" y="45" width="10" height="10" fill="#cfd8dc" />
-                <rect x="20" y="45" width="10" height="10" fill="#cfd8dc" />
-                <rect x="40" y="45" width="10" height="10" fill="#cfd8dc" />
-                <!-- Add more small squares here for a grid effect -->
-            </svg>
+
         </div>
         <div class="orange-box"></div> <!-- New orange box -->
-        <img src="images/pfp2.png" alt="Profile Picture" class="profile-picture">
+
         <div class="container">
+            <img src="images/pfp2.png" alt="Profile Picture" class="profile-picture">
             <div class="hero-content">
                 <div class="text-content">
                     <h1>Hello, I'm <br> <span id="typed-name"></span></h1>
@@ -68,22 +73,47 @@
 
     <!-- Projects Section -->
     <section class="projects">
-        <h2>My Projects</h2>
-        <div class="projects-grid">
-            <div class="project-item">
-                <h3>Project 1</h3>
-                <p>A brief description of Project 1. This project involves...</p>
-                <p>Skills: HTML, CSS, JavaScript</p>
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project items here -->
+                <div class="project-item">
+                    <img src="path_to_thumbnail1.jpg" alt="Thumbnail of Project 1">
+                    <div class="project-info">
+                        <h3>Project 1</h3>
+                        <p>A brief description of Project 1. This project involves...</p>
+                        <p>Skills: HTML, CSS, JavaScript</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="path_to_thumbnail2.jpg" alt="Thumbnail of Project 2">
+                    <div class="project-info">
+                        <h3>Project 2</h3>
+                        <p>A brief description of Project 2. This project involves...</p>
+                        <p>Skills: React, Node.js</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="path_to_thumbnail2.jpg" alt="Thumbnail of Project 2">
+                    <div class="project-info">
+                        <h3>Project 2</h3>
+                        <p>A brief description of Project 2. This project involves...</p>
+                        <p>Skills: React, Node.js</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="path_to_thumbnail2.jpg" alt="Thumbnail of Project 2">
+                    <div class="project-info">
+                        <h3>Project 2</h3>
+                        <p>A brief description of Project 2. This project involves...</p>
+                        <p>Skills: React, Node.js</p>
+                    </div>
+                </div>
+                <!-- More project items as needed -->
             </div>
-            <div class="project-item">
-                <h3>Project 2</h3>
-                <p>A brief description of Project 2. This project involves...</p>
-                <p>Skills: React, Node.js</p>
-            </div>
-            <!-- Add more project items as needed -->
         </div>
-    </section>    
-
+    </section>
+    
    <!-- Experience Section -->
 <section class="experience py-5" id="experience">
     <div class="container">
@@ -92,6 +122,8 @@
             <div class="timeline-item">
                 <div class="timeline-icon"></div>
                 <div class="timeline-content">
+                    <img src="path_to_logo.png" alt="Company Logo" class="timeline-logo">
+
                     <h3>Role 1</h3>
                     <p class="timeline-date">Company Name - Dates</p>
                     <p>Brief description of responsibilities and achievements. Highlight key accomplishments and skills gained.</p>
@@ -100,6 +132,8 @@
             <div class="timeline-item">
                 <div class="timeline-icon"></div>
                 <div class="timeline-content">
+                    <img src="path_to_logo.png" alt="Company Logo" class="timeline-logo">
+
                     <h3>Role 2</h3>
                     <p class="timeline-date">Company Name - Dates</p>
                     <p>Brief description of responsibilities and achievements. Highlight key accomplishments and skills gained.</p>
