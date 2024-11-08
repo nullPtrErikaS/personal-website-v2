@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V934GWDLFE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-V934GWDLFE');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
+
+    <link rel="icon" type="image/png" href="images/2024_11_07_128_Kleki.png">
+    <html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erika Sy. - Personal Website</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -72,9 +87,9 @@
 </section>
 
     <!-- Projects Section -->
-    <section class="projects">
+    <section class="projects" id = "projects">
         <div class="container">
-            <h2>My Projects</h2>
+            <h2>Projects</h2>
             <div class="projects-grid">
                 <!-- Project items here -->
                 <div class="project-item">
@@ -149,37 +164,51 @@
     </div>
 </section>
 
+<!-- Leadership Section -->
+<section class="experience py-5">
+    <div class="container">
+        <h2 class="text-center">Leadership</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <div class="timeline-content">
+                    <img src="path_to_logo.png" alt="Company Logo" class="timeline-logo">
+
+                    <h3>Role 1</h3>
+                    <p class="timeline-date">Company Name - Dates</p>
+                    <p>Brief description of responsibilities and achievements. Highlight key accomplishments and skills gained.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <div class="timeline-content">
+                    <img src="path_to_logo.png" alt="Company Logo" class="timeline-logo">
+
+                    <h3>Role 2</h3>
+                    <p class="timeline-date">Company Name - Dates</p>
+                    <p>Brief description of responsibilities and achievements. Highlight key accomplishments and skills gained.</p>
+                </div>
+            </div>
+            <!-- Add more timeline items as needed -->
+        </div>
+    </div>
+</section>
+
 <!-- Contact Section -->
 <section class="contact py-5" id="contact">
     <div class="container text-center">
         <h2>Contact Me</h2>
-        <p>If you have any questions or would like to get in touch, feel free to drop me a message using the form below or reach out via email.</p>
-        <form action="your-server-endpoint" method="post" class="contact-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-        <p class="mt-4">Or email me directly at <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-        
+                
         <div class="social-media mt-4">
-            <a href="https://twitter.com/yourusername" target="_blank" class="social-icon">
-                <img src="icons/twitter.svg" alt="Twitter">
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon">
-                <img src="icons/linkedin.svg" alt="LinkedIn">
+            <a href="mailto:ebasy22@gamil.com" target="_blank" class="social-icon">
+                <i class="fas fa-envelope fa"></i>
             </a>
-            <a href="https://github.com/yourusername" target="_blank" class="social-icon">
-                <img src="icons/github.svg" alt="GitHub">
+            <a href="https://www.linkedin.com/in/erika-sy/" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/nullPtrErikaS" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
             </a>
             <!-- Add more social media links as needed -->
         </div>
@@ -187,6 +216,8 @@
 </section>
 
     <!-- Bootstrap JS and Dependencies -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

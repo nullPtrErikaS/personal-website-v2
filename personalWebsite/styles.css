@@ -285,7 +285,7 @@ body {
     }
 
     .about h2 {
-        font-size: 1.5rem; /* Adjust heading size on smaller screens */
+        font-size: 1.75rem; /* Adjust heading size on smaller screens */
         text-align: center; /* Ensures the title is centered */
     }
 
@@ -314,6 +314,12 @@ body {
     padding: 50px 0;
     background-color: #f8f9fa;
     text-align: center;
+}
+
+.projects h2 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin-bottom: 20px; /* Space below the header */
+    font-weight: 640; /* Bold heading */
 }
 
 .projects-grid {
@@ -530,8 +536,11 @@ body {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .projects h2 {
+        font-size: 1.75rem; /* Smaller heading size */
+    }
     .experience h2 {
-        font-size: 1.5rem; /* Smaller heading size */
+        font-size: 1.75rem; /* Smaller heading size */
     }
 
     .experience-item {
@@ -611,7 +620,7 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .contact h2 {
-        font-size: 1.5rem; /* Smaller heading size */
+        font-size: 1.75rem; /* Smaller heading size */
     }
 
     .contact-form {
@@ -653,4 +662,8 @@ body {
     .social-icon img {
         width: 25px; /* Smaller icons on mobile */
     }
+}
+
+.social-icon i {
+    font-size: 24px; /* Adjust font size as needed */
 }
