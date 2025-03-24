@@ -379,6 +379,11 @@ body {
     font-style: italic; /* Styling for skills list */
 }
 
+.project-thumbnail img {
+    width: 400px; /* Sets the width of the image */
+    height: auto; /* Maintains the aspect ratio */
+    align-items: center; 
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) { /* Adjusting for small devices */
@@ -520,6 +525,12 @@ body {
     margin: 10px 0; /* Space between paragraphs */
 }
 
+ul {
+    list-style-type: disc;
+    color: rgb(0, 0, 0); /* Changes the color of the bullet */
+    list-style-type: square; /* Other options include circle, disc, etc. */
+}
+
 /* Resume Button */
 .btn-primary {
     background-color: #ff7300; /* Background color for the button */
@@ -532,6 +543,15 @@ body {
 .btn-primary:hover {
     background-color: #ff5e00; /* Darker color on hover */
     border-color: #ff5e00; /* Darker border color on hover */
+}
+
+.instagram-link {
+    position: absolute;
+    top: 20px; /* Position it at the top of the container */
+    right: 30px; /* Position it to the right of the container */
+    font-size: 25px; /* Large enough to be easily clickable */
+    color: #C13584; /* Instagram's brand color, adjust if needed */
+    z-index: 2; /* Ensure it's above other elements */
 }
 
 /* Responsive Adjustments */
@@ -557,10 +577,6 @@ body {
 }
 
 /* Contact Section */
-.contact {
-    background-color: #f8f9fa; /* Light background color */
-    color: #000000; /* Text color */
-}
 
 .contact h2 {
     font-size: 2.5rem; /* Heading size */
@@ -571,15 +587,6 @@ body {
 .contact p {
     font-size: 1.125rem; /* Paragraph text size */
     margin-bottom: 30px; /* Space below the paragraph */
-}
-
-.contact-form {
-    max-width: 600px; /* Max width for the form */
-    margin: 0 auto; /* Center the form */
-    padding: 20px;
-    background-color: #ffffff; /* Background color for the form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .form-group {
@@ -666,4 +673,35 @@ body {
 
 .social-icon i {
     font-size: 24px; /* Adjust font size as needed */
+}
+
+#contact {
+    background-color: #f3f1f1; /* Light grey background */
+    padding: 50px 0; /* Padding for top and bottom */
+    margin-top: 20px; /* Optional: add some space between sections */
+    text-align: center; /* Center align text */
+    color: #333; /* Text color for visibility */
+}
+
+.contact .container {
+    padding: 0 20px; /* Padding on the sides */
+    max-width: 800px; /* Maximum width to contain the content */
+    margin: 0 auto; /* Center the container */
+}
+
+.social-media {
+    display: flex;
+    justify-content: center; /* Centering the social media icons */
+    gap: 20px; /* Space between icons */
+}
+
+.social-icon {
+    display: inline-block;
+    color: #333; /* Icon color */
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-icon:hover {
+    color: #0056b3; /* Color when hovered */
 }
